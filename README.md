@@ -123,6 +123,63 @@ Example (KV format, HTTPS):
 ts='2025-08-08T18:36:19.475234Z' level='info' event='https_check' url='https://httpbin.org/get' host='httpbin.org' port=443 via_proxy=False tls_ms=387 tls_protocol='TLSv1.2' tls_cipher='ECDHE-RSA-AES128-GCM-SHA256' http_status=200 http_status_line='HTTP/1.1 200 OK' tls_sni='httpbin.org' cert={'subject': 'CN=httpbin.org', 'issuer': 'C=US/O=Amazon/CN=Amazon RSA 2048 M03', 'serial_hex': '…', 'not_before': '20250720000000Z', 'not_after': '20260817235959Z', 'sans': ['DNS:httpbin.org', 'DNS:*.httpbin.org'], 'fingerprint_sha256': '…', 'hostname_to_verify': 'httpbin.org', 'hostname_ok': True, 'hostname_error': None}
 ```
 
+```json
+{
+  "url": "https://httpbin.org/get",
+  "interval": null,
+  "interval_s": null,
+  "timeout": "5s",
+  "timeout_s": 5.0,
+  "via_proxy": false,
+  "proxy_scheme": null,
+  "log_format": "console",
+  "method": "GET",
+  "data_dir": "~/.config/urlmonitor",
+  "log_file": "~/.config/urlmonitor/logs/monitor.log",
+  "config_file": null,
+  "connect_ip": null,
+  "ca_bundle": null,
+  "event": "start",
+  "level": "info",
+  "ts": "2025-08-12T13:08:16.375530Z"
+}
+{
+  "url": "https://httpbin.org/get",
+  "host": "httpbin.org",
+  "port": 443,
+  "via_proxy": false,
+  "proxy_scheme": null,
+  "connect_ip": null,
+  "tcp_ms": 43,
+  "tls_ms": 388,
+  "tls_protocol": "TLSv1.2",
+  "tls_cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+  "http_status": 200,
+  "http_status_line": "HTTP/1.1 200 OK",
+  "tls_sni": "httpbin.org",
+  "ca_bundle": null,
+  "cert": {
+    "subject": "commonName=httpbin.org",
+    "issuer": "countryName=US/organizationName=Amazon/commonName=Amazon RSA 2048 M03",
+    "serial_hex": "e2558d492728e9c01a8dadedc05d13d",
+    "not_before": "20250720000000Z",
+    "not_after": "20260817235959Z",
+    "sans": [
+      "DNS:httpbin.org",
+      "DNS:*.httpbin.org"
+    ],
+    "fingerprint_sha256": "10E5C3BD42720A3E3AEBE14D0476E7F906449A09F7C689126619AEEC5701F045",
+    "hostname_to_verify": "httpbin.org",
+    "hostname_ok": true,
+    "hostname_error": null
+  },
+  "elapsed_ms": 5060,
+  "event": "https_check",
+  "level": "info",
+  "ts": "2025-08-12T13:08:21.437434Z"
+}
+```
+
 ## Tips
 
 - For single-run checks, omit `--interval` (the monitor will exit after one request).
